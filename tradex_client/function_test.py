@@ -17,8 +17,8 @@ class TradeXTester:
                 app_key="test",
                 secret_key="test",
                 base_url="https://tradex.saral-info.com:30001/TradeXApi/v1",
-                client_id="test01",
-                user_id="test01"
+                client_id="TEST01",
+                user_id="TEST01"
             )
             
             print(json.dumps(self.client.login(True).get_dict(), indent=2))
