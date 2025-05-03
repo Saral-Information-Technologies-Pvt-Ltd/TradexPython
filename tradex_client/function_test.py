@@ -1,9 +1,9 @@
 import time
-#from .tradex_api_client import TradeXClient
+
 from tradex_client.tradex_api_client import TradeXClient
-#from .exceptions import TradeXAPIError, TradeXDataFetchError, TradeXInvalidResponseError
+
 from tradex_client.exceptions import TradeXAPIError,TradeXDataFetchError,TradeXInvalidResponseError
-#from .models import *
+
 from tradex_client.models import *
 import json
 import os
@@ -14,11 +14,11 @@ class TradeXTester:
     def __init__(self):
         try:
             self.client = TradeXClient(
-                app_key="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzQ0MzcyOTU1IiwiaXNzIjoiU2FyYWwiLCJleHAiOiIxNzc1ODY1NjAwIiwiYXVkIjoiUzEyMyIsImp0aSI6IjY5IiwiZmxnIjoiNjQifQ.ygpgQQDAhyUiRKo2qj7oGxg60YgJNa-Who6Q7DpvxyM",
-                secret_key="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzQ0MzcyOTU1IiwiaXNzIjoiU2FyYWwiLCJleHAiOiIxNzc1ODY1NjAwIiwiYXVkIjoiUzEyMyIsImp0aSI6IjY5IiwiZmxnIjoiMTI4Iiwic2NwIjoiMCIsInNvdXJjZSI6IlNvbG8iLCJ3aGl0ZWxpc3QiOiIiLCJ0cmQiOiIyODE1IiwicHJkIjoiMTUifQ.4O4EUDUZU8wx_UX68Ev7cUXHId_Cr8U7WrVbUfx9eY4",
+                app_key="test",
+                secret_key="test",
                 base_url="https://tradex.saral-info.com:30001/TradeXApi/v1",
-                client_id="S123",
-                user_id="S123"
+                client_id="test01",
+                user_id="test01"
             )
             
             print(json.dumps(self.client.login(True).get_dict(), indent=2))
