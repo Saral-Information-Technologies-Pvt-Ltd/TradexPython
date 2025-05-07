@@ -28,11 +28,13 @@ python -m venv venv
 ### ✅ Step 3: Activate the Virtual Environment
 
 #### On **Windows**
+
 ```bash
 venv\Scripts\activate
 ```
 
 #### On **macOS / Linux**
+
 ```bash
 source venv/bin/activate
 ```
@@ -42,13 +44,13 @@ source venv/bin/activate
 > 📁 **Download the `dependencies.whl` file from our GitHub repository.** This file is required before proceeding.
 
 ```bash
-pip install path/to/dependencies.whl
+pip install dist/dependencies.whl
 ```
 
 ### 🔁 Optional: Reinstall SDK dependencies if updates are made
 
 ```bash
-pip install path/to/dependencies.whl --force-reinstall
+pip install dist/dependencies.whl --force-reinstall
 ```
 
 ---
@@ -112,7 +114,7 @@ print(json.dumps(response, indent=2))
 ## 📁 WebSocket Callbacks
 
 ```
-self.client.register_callback("order", self.handle_order_event) 
+self.client.register_callback("order", self.handle_order_event)
 self.client.register_callback("trade", self.handle_trade_event)
 
 def handle_trade_event(self, data: TradesBookData):
@@ -138,7 +140,7 @@ def handle_trade_event(self, data: TradesBookData):
         print(f"Exchange Order No: {data.exchange_order_no}")
         print(f"Entry Time    : {data.entry_at}")
         print("-" * 40)
-    
+
 
 ```
 
