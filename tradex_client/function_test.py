@@ -14,11 +14,11 @@ class TradeXTester:
     def __init__(self):
         try:
             self.client = TradeXClient(
-                app_key="test",
-                secret_key="test",
+                app_key="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzUxNDU2NzE4IiwiaXNzIjoiU2FyYWwiLCJleHAiOiIxNzgyODY0MDAwIiwiYXVkIjoiUzEyMyIsImp0aSI6IjExMTEiLCJmbGciOiI2NCJ9.Ex0lx8lhSNinM4OozGblg-z59kFAl3-8gLMgBqgrQOY",
+                secret_key="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzUxNDU2NzE4IiwiaXNzIjoiU2FyYWwiLCJleHAiOiIxNzgyODY0MDAwIiwiYXVkIjoiUzEyMyIsImp0aSI6IjExMTEiLCJmbGciOiIxMjgiLCJzY3AiOiIwIiwic291cmNlIjoiSVBob25lIiwid2hpdGVsaXN0IjoiIiwidHJkIjoiMTkxIiwicHJkIjoiMTUifQ.s3RjbKoqItQ0UITMmPIwaQ0NJl4RuzD3w1m6vRguLlU",
                 base_url="https://tradex.saral-info.com:30001/TradeXApi/v1",
-                client_id="TEST01",
-                user_id="TEST01"
+                client_id="S123",
+                user_id="S123"
             )
             
             print(json.dumps(self.client.login(True).get_dict(), indent=2))
@@ -558,6 +558,10 @@ class TradeXTester:
     def test_get_order_status(self):
         """Test get_order_status method"""
         try:
+            if not self.client_id:
+                print("Client ID not set. Please set client ID first.")
+                self.set_client_id()
+            
             exchange = self.prompt_for_value(
                 "Choose exchange", 
                 options=self.reference_values["exchanges"], 
@@ -575,13 +579,14 @@ class TradeXTester:
             
             order_status_request = OrderStatusRequest(
                 **{
+                  "client": self.client_id,
                   "exchange": exchange,
                   "code": code,
                   "exchange_order_no": exchange_order_no,
                   "sender_order_no": sender_order_no
                 }
             )
-            
+            print(order_status_request) 
             response = self.client.get_order_status(order_status_request)
             print("\nOrder Status Response:")
             self.print_response(response)

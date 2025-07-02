@@ -13,7 +13,8 @@ DEFAULT_CLIENT = os.getenv("CLIENT_ID")
 @dataclass
 class OrderStatusData:
     exchange: str
-    client: str
+    # client: str
+    client: str = field(default_factory=lambda: DEFAULT_CLIENT)
     code: str
     symbol: str
     series: str
