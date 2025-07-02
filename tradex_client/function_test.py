@@ -14,11 +14,11 @@ class TradeXTester:
     def __init__(self):
         try:
             self.client = TradeXClient(
-                app_key="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzUxNDU2NzE4IiwiaXNzIjoiU2FyYWwiLCJleHAiOiIxNzgyODY0MDAwIiwiYXVkIjoiUzEyMyIsImp0aSI6IjExMTEiLCJmbGciOiI2NCJ9.Ex0lx8lhSNinM4OozGblg-z59kFAl3-8gLMgBqgrQOY",
-                secret_key="eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzUxNDU2NzE4IiwiaXNzIjoiU2FyYWwiLCJleHAiOiIxNzgyODY0MDAwIiwiYXVkIjoiUzEyMyIsImp0aSI6IjExMTEiLCJmbGciOiIxMjgiLCJzY3AiOiIwIiwic291cmNlIjoiSVBob25lIiwid2hpdGVsaXN0IjoiIiwidHJkIjoiMTkxIiwicHJkIjoiMTUifQ.s3RjbKoqItQ0UITMmPIwaQ0NJl4RuzD3w1m6vRguLlU",
+                app_key="test",
+                secret_key="test",
                 base_url="https://tradex.saral-info.com:30001/TradeXApi/v1",
-                client_id="S123",
-                user_id="S123"
+                client_id="TEST01",
+                user_id="TEST01"
             )
             
             print(json.dumps(self.client.login(True).get_dict(), indent=2))
